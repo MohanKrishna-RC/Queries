@@ -1,7 +1,7 @@
 import os, cv2, glob, csv
 import pandas as pd
 import numpy as np
-csv = "csvs/20200203_2_213002.047_220001.556.csv"
+csv = "csvs/20200214_2_213005.307_220002.307.csv"
 vmd_name = csv.split('/')[1].split('.csv')[0]
 print(vmd_name)
 df = pd.read_csv(csv)
@@ -12,7 +12,7 @@ a = np.unique(df['frame_zipfile_path'])
 print(a)
 def create_dir(folder):
     if not os.path.exists(folder):
-                os.makedirs(folder)
+        os.makedirs(folder)
 
 # # input_frames_folder = "/home/aodev/demo_video_rois_and_frames/frames"
 for i,j in enumerate(a):
@@ -21,20 +21,20 @@ for i,j in enumerate(a):
     b = "output_folder_{}".format(i)
     # print(b)
     # break
-    b = os.path.join("/home/mohan/queries/emotion/emo_testing/",a[i].split('/')[-1].split(".")[0])
+    b = os.path.join("/home/mohan/Queries/emotion/emo_testing/",a[i].split('/')[-1].split(".")[0])
     # print(b)
     os.system("gsutil -m cp -r {} ./b_1".format(a[i]))
     c = b.split('/')[-1]
     # print(c)
     # break
-    create_dir("/home/mohan/queries/emotion/emo_testing/frame_info/{}/".format(vmd_name))
+    create_dir("/home/mohan/Queries/emotion/emo_testing/frame_info/{}/".format(vmd_name))
     # break
-    os.system("unzip b_1 -d /home/mohan/queries/emotion/emo_testing/frame_info/{}/{}/".format(vmd_name,c))
+    os.system("unzip b_1 -d /home/mohan/Queries/emotion/emo_testing/frame_info/{}/{}/".format(vmd_name,c))
 
-output_folder = "/home/mohan/queries/emotion/emo_testing/"
+output_folder = "/home/mohan/Queries/emotion/emo_testing/"
 # csv = "/home/mohan/bbox_test_logo.csv"
 # # csv = "/home/aodev/demo_video_rois_and_frames/predictions_18_apr_rois.csv"
-input_frames_folder = "/home/mohan/queries/emotion/emo_testing/frame_info/{}".format(vmd_name)
+input_frames_folder = "/home/mohan/Queries/emotion/emo_testing/frame_info/{}".format(vmd_name)
 
 for i in range(len(df)):
     # print(i)

@@ -4,7 +4,7 @@ from constant import Constant
 from common_utility import Commonutility
 
 
-filename = 'jsons/20200203_2_213002.047_220001.556.json'
+filename = 'jsons/20200214_2_213005.307_220002.307.json'
 with open(filename,'r') as f:
     data = json.load(f)
 
@@ -12,4 +12,4 @@ with open(filename,'r') as f:
 cmt = Commonutility()
 df =  cmt.prepare_metadata(data,'roi',0.0)
 
-df.to_csv('csvs/20200203_2_213002.047_220001.556.csv',index=None)
+df.to_csv('csvs/20200214_2_213005.307_220002.307.csv',index=None)
